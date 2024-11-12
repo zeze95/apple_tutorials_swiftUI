@@ -16,6 +16,15 @@ struct Landmark: Hashable, Codable, Identifiable { //Identifiable 객체를 고�
     var state: String
     var description: String
     var isFavorite : Bool // 좋아요 한것을 저장하는
+    var isFeatured: Bool // 추천 여부
+    
+    
+    var category: Category
+        enum Category: String, CaseIterable, Codable { // CaseIterable 케이스들을 쉽게 다루기 위해 존재하는 프로토콜 Codable은 인코딩디코딩
+            case lakes = "Lakes"
+            case rivers = "Rivers"
+            case mountains = "Mountains"
+        }
     
     private var imageName: String
         var image: Image {

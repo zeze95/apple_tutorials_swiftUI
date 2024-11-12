@@ -11,6 +11,17 @@ import Foundation
 class ModelData{ // 기본 클래스
     var landmarks: [Landmark] = load("landmarkData.json")
     var hikes : [Hike] = load("hikeData.json")
+    var profile = Profile.default
+    var features: [Landmark] {
+            landmarks.filter { $0.isFeatured }
+        } // 추천 랜드마크만 들어간 배열을 만들기 위해
+    
+    var categories: [String: [Landmark]] {
+            Dictionary(
+                grouping: landmarks,
+                by: { $0.category.rawValue }
+            )
+        } // 랜ㄷ마크 배열을 포함하는 카테고리
 }
 
 //var landmarks: [Landmark] = load("landmarkData.json") // 초기화할 랜드마크 배열
