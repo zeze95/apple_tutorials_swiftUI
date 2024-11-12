@@ -10,6 +10,7 @@ import Foundation
 @Observable // 클래스의 속성이 자동으로 변화 추적이 가능하고 더 간편하게 업데이트 가능
 class ModelData{ // 기본 클래스
     var landmarks: [Landmark] = load("landmarkData.json")
+    var hikes : [Hike] = load("hikeData.json")
 }
 
 //var landmarks: [Landmark] = load("landmarkData.json") // 초기화할 랜드마크 배열
